@@ -5,6 +5,7 @@ import { useFonts } from 'expo-font';
 import Header from './components/UI/Header';
 import Span from './components/UI/Span';
 import Button from './components/UI/Button';
+import Input from './components/UI/Input';
 
 export default function App() {
 
@@ -25,6 +26,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Input email onInputChange={foo} label="Login"/>
       <Header>TEXXTa</Header>
       <Header h1>TEXXTa</Header>
       <Header h2>TEXXTa</Header>

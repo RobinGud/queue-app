@@ -4,7 +4,7 @@ import Colors from '../../constants/Colors'
 
 const Span = (props) => {
     return (
-        <Text style={[styles.l1, props.styles, props.l2 && styles.l2, props.l3 && styles.l3]} > 
+        <Text style={[styles.l1, props.style, props.l2 && styles.l2, props.l3 && styles.l3]} > 
             {props.children}
         </Text>
     )

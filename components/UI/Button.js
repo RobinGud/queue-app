@@ -8,8 +8,8 @@ const Button = (props) => {
         <TouchableOpacity
             onPress={props.disabled ? undefined : props.onPress}
             activeOpacity={props.disabled ? 1 : 0.6 }
-            style={[styles.button, props.styles, props.disabled && styles.disabledButton, props.small && styles.small, props.secondary && styles.secondaryButton]}>
-            <Span styles={[styles.innerText, props.secondary && styles.innerTextSecondary]}>Pick a photo</Span>
+            style={[styles.button, props.style, props.disabled && styles.disabledButton, props.small && styles.small, props.secondary && styles.secondaryButton]}>
+            <Span style={[styles.innerText, props.secondary && styles.innerTextSecondary]}>Pick a photo</Span>
         </TouchableOpacity>
     )
 }
@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         borderRadius: 40,
         height: 38,
         width: 220,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginVertical: 10
     },
     secondaryButton: {
         backgroundColor: Colors.white,

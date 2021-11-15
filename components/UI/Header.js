@@ -4,7 +4,7 @@ import Colors from '../../constants/Colors'
 
 const Header = (props) => {
     return (
-        <Text style={[styles.h0, props.styles, props.h1 && styles.h1, props.h2 && styles.h2]} > 
+        <Text style={[styles.h0, props.style, props.h1 && styles.h1, props.h2 && styles.h2]} > 
             {props.children}
         </Text>
     )
