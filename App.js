@@ -2,12 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
-import H0 from './components/UI/H0';
-import L1 from './components/UI/L1';
-import H1 from './components/UI/H1';
-import H2 from './components/UI/H2';
-import L2 from './components/UI/L2';
-import L3 from './components/UI/L3';
+import Header from './components/UI/Header';
+import Span from './components/UI/Span';
+import Button from './components/UI/Button';
 
 export default function App() {
 
@@ -22,15 +19,21 @@ export default function App() {
     return null;
   }
 
+  const foo = (e) => {
+    console.log(e)
+  }
+
   return (
     <View style={styles.container}>
-      {/* <Text style={{ fontFamily: 'GilroyBold', fontSize: 30}}>Open up App.js to start working on your app! HELLO</Text> */}
-      <H0>TEXXTa</H0>
-      <H1>TEXXTa</H1>
-      <H2>TEXXTa</H2>
-      <L1>TEXXTa</L1>
-      <L2>TEXXTa</L2>
-      <L3>TEXXTa</L3>
+      <Header>TEXXTa</Header>
+      <Header h1>TEXXTa</Header>
+      <Header h2>TEXXTa</Header>
+      <Span>TEXXTa</Span>
+      <Span l2>TEXXTa</Span>
+      <Span l3>TEXXTa</Span>
+      <Button small onPress={foo}/>
+      <Button disabled onPress={foo}/>
+      <Button secondary onPress={foo}/>
       <StatusBar style="auto" />
     </View>
   );
