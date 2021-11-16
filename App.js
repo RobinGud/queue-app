@@ -6,6 +6,8 @@ import Header from './components/UI/Header';
 import Span from './components/UI/Span';
 import Button from './components/UI/Button';
 import Input from './components/UI/Input';
+import Profile from './screens/Profile';
+import CircularProgressBar from './components/Queue/CircularProgressBar'
 
 export default function App() {
 
@@ -26,7 +28,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Input email onInputChange={foo} label="Login"/>
+      {/* <Profile /> */}
+
+      <CircularProgressBar size={200} color="#234567" strokeWidth={50} percent={60} activeColor="#555"/>
+      <CircularProgressBar size={100} color="#234567" strokeWidth={10} percent={60} activeColor="#555"/>
+
+      {/* <Input email onInputChange={foo} label="Login"/>
       <Header>TEXXTa</Header>
       <Header h1>TEXXTa</Header>
       <Header h2>TEXXTa</Header>
@@ -35,7 +42,7 @@ export default function App() {
       <Span l3>TEXXTa</Span>
       <Button small onPress={foo}/>
       <Button disabled onPress={foo}/>
-      <Button secondary onPress={foo}/>
+      <Button secondary onPress={foo}/> */}
       <StatusBar style="auto" />
     </View>
   );
@@ -45,7 +52,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    // alignItems: 'center',
+    // justifyContent: 'center'
   },
 });
