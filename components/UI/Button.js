@@ -9,7 +9,7 @@ const Button = (props) => {
             onPress={props.disabled ? undefined : props.onPress}
             activeOpacity={props.disabled ? 1 : 0.6 }
             style={[styles.button, props.style, props.disabled && styles.disabledButton, props.small && styles.small, props.secondary && styles.secondaryButton]}>
-            <Span style={[styles.innerText, props.secondary && styles.innerTextSecondary]}>Pick a photo</Span>
+            <Span style={[styles.innerText, props.secondary && styles.innerTextSecondary]}>{props.children}</Span>
         </TouchableOpacity>
     )
 }

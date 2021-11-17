@@ -8,6 +8,7 @@ import Button from './components/UI/Button';
 import Input from './components/UI/Input';
 import Profile from './screens/Profile';
 import CircularProgressBar from './components/Queue/CircularProgressBar'
+import Auth from './screens/Auth';
 
 export default function App() {
 
@@ -29,9 +30,10 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* <Profile /> */}
+      <Auth />
 
-      <CircularProgressBar size={200} color="#234567" strokeWidth={50} percent={60} activeColor="#555"/>
-      <CircularProgressBar size={100} color="#234567" strokeWidth={10} percent={60} activeColor="#555"/>
+      {/* <CircularProgressBar size={200} color="#234567" strokeWidth={50} percent={60} activeColor="#555"/>
+      <CircularProgressBar size={100} color="#234567" strokeWidth={10} percent={60} activeColor="#555"/> */}
 
       {/* <Input email onInputChange={foo} label="Login"/>
       <Header>TEXXTa</Header>
