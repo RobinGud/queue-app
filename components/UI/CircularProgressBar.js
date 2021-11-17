@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Dimensions } from 'react-native'
 import Svg, { Circle, Text, TSpan } from 'react-native-svg';
+import Colors  from '../../constants/Colors'
 
 
 const CircularProgressBar = (props) => {
@@ -16,7 +17,7 @@ const CircularProgressBar = (props) => {
                 r={radius} 
                 strokeWidth={props.strokeWidth}
             />
-            <Text x="45%" y="50%" fill="red" alignmentBaseline="central" textAnchor="middle" fontSize="14" fontFamily="IBMPlexSans">
+            <Text x="45%" y="50%" fill={Colors.black} alignmentBaseline="central" textAnchor="middle" fontSize="14">
             {props.percent}%
             </Text>
             <Circle 

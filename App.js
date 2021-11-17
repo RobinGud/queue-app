@@ -7,8 +7,16 @@ import Span from './components/UI/Span';
 import Button from './components/UI/Button';
 import Input from './components/UI/Input';
 import Profile from './screens/Profile';
-import CircularProgressBar from './components/Queue/CircularProgressBar'
+import CircularProgressBar from './components/UI/CircularProgressBar'
 import Auth from './screens/Auth';
+import Tutorial from './screens/Tutorial';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Disciplines from './screens/Disciplines';
+import Groups from './screens/Groups';
+import Queues from './screens/Queues';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
 
@@ -30,7 +38,17 @@ export default function App() {
   return (
     <View style={styles.container}>
       {/* <Profile /> */}
-      <Auth />
+      {/* <Auth /> */}
+      {/* < Tutorial /> */}
+      <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={Profile} />
+        <Stack.Screen name="Disciplines" component={Disciplines} />
+        <Stack.Screen name="Groups" component={Groups} />
+        <Stack.Screen name="Queues" component={Queues} />
+      </Stack.Navigator>
+      </NavigationContainer>
+      
 
       {/* <CircularProgressBar size={200} color="#234567" strokeWidth={50} percent={60} activeColor="#555"/>
       <CircularProgressBar size={100} color="#234567" strokeWidth={10} percent={60} activeColor="#555"/> */}

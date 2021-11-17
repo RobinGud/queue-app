@@ -3,11 +3,11 @@ import { ScrollView } from 'react-native'
 import Bio from '../components/Profile/Bio'
 import Menu from '../components/Profile/Menu'
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <ScrollView>
             <Bio />
-            <Menu />
+            <Menu {...props}/>
         </ScrollView>
     )
 }

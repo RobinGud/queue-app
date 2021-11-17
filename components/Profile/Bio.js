@@ -21,7 +21,7 @@ const Bio = () => {
 
 const styles = StyleSheet.create({
     container: {
-        paddingTop: 40,
+        paddingTop: 10,
         flexDirection: 'row',
         alignItems: 'center',
     },
@@ -37,7 +37,8 @@ const styles = StyleSheet.create({
         height: '100%'
     },
     textContainer: {
-        width: Dimensions.get("window").width * 0.7 - 20
+        width: Dimensions.get("window").width * 0.7 - 20,
+        marginLeft: 10
     }
 })
 
