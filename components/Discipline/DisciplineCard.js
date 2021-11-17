@@ -5,7 +5,7 @@ import Button from '../UI/Button'
 import CircularProgressBar from '../UI/CircularProgressBar'
 import Span from '../UI/Span'
 
-const DisciplinesCard = () => {
+const DisciplineCard = (props) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -16,7 +16,7 @@ const DisciplinesCard = () => {
                     <Span l3>Преподаватель: Иванов Н.В.</Span>
                     <Span l3>Активных очередей: 3</Span>
                     <Span l3>Кол-во групп: 4</Span>
-                    <Button small secondary>Cписок групп</Button>
+                    <Button small secondary onPress={() => props.navigation.navigate("Groups")}>Cписок групп</Button>
                 </View>
                 <CircularProgressBar size={Dimensions.get('window').width * 0.3} color={Colors.grey1} strokeWidth={10} percent={60} activeColor={Colors.blue}/>
             </View>}
@@ -36,4 +36,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default DisciplinesCard
+export default DisciplineCard

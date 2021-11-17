@@ -3,20 +3,20 @@ import { ScrollView } from 'react-native'
 import Header from '../components/UI/Header'
 import GroupCard from '../components/Group/GroupCard'
 
-const Groups = () => {
+const Groups = (props) => {
     return (
     <ScrollView>
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
-        <GroupCard />
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
+        <GroupCard {...props}/>
     </ScrollView>
     )
 }

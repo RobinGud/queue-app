@@ -1,22 +1,22 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
-import DisciplinesCard from '../components/Disciplines/DisciplinesCard'
+import DisciplineCard from '../components/Discipline/DisciplineCard'
 import Header from '../components/UI/Header'
 
-const Disciplines = () => {
+const Disciplines = (props) => {
     return (
         <ScrollView>
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
-            <DisciplinesCard />
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
+            <DisciplineCard {...props}/>
         </ScrollView>
     )
 }
