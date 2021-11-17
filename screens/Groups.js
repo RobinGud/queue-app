@@ -1,9 +1,23 @@
 import React from 'react'
+import { ScrollView } from 'react-native'
 import Header from '../components/UI/Header'
+import GroupCard from '../components/Group/GroupCard'
 
 const Groups = () => {
     return (
-    <Header>GROUPS</Header>
+    <ScrollView>
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+        <GroupCard />
+    </ScrollView>
     )
 }
 
