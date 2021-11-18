@@ -1,4 +1,4 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { TouchableOpacity, StyleSheet, View, Dimensions } from 'react-native'
 import Colors from '../../constants/Colors'
 import Button from '../UI/Button'
@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     },
     detailContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center'
     }
 })
 

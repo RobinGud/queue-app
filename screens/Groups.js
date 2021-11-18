@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
 import Header from '../components/UI/Header'
-import GroupCard from '../components/Group/GroupCard'
+import GroupCard from '../components/Groups/GroupCard'
 
 const Groups = (props) => {
     return (

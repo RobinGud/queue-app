@@ -15,6 +15,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Disciplines from './screens/Disciplines';
 import Groups from './screens/Groups';
 import Queues from './screens/Queues';
+import Queue from './screens/Queue';
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,7 @@ export default function App() {
         <Stack.Screen name="Disciplines" component={Disciplines} />
         <Stack.Screen name="Groups" component={Groups} />
         <Stack.Screen name="Queues" component={Queues} />
+        <Stack.Screen name="Queue" component={Queue} />
       </Stack.Navigator>
       </NavigationContainer>
       

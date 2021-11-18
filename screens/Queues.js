@@ -1,9 +1,20 @@
 import React from 'react'
-import Header from '../components/UI/Header'
+import { ScrollView } from 'react-native'
+import QueueCard from '../components/Queues/QueueCard'
 
-const Queues = () => {
+const Queues = (props) => {
     return (
-        <Header>Очереди</Header>
+        <ScrollView>
+            <QueueCard {...props}/>
+            <QueueCard {...props}/>
+            <QueueCard {...props}/>
+            <QueueCard {...props}/>
+            <QueueCard {...props}/>
+            <QueueCard {...props}/>
+            <QueueCard {...props}/>
+            <QueueCard {...props}/>
+            <QueueCard {...props}/>
+        </ScrollView>
     )
 }
 

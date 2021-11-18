@@ -1,6 +1,6 @@
 import React from 'react'
 import { ScrollView } from 'react-native'
-import DisciplineCard from '../components/Discipline/DisciplineCard'
+import DisciplineCard from '../components/Disciplines/DisciplineCard'
 import Header from '../components/UI/Header'
 
 const Disciplines = (props) => {
