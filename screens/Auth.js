@@ -1,34 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, Dimensions, View } from 'react-native';
 import Header from '../components/UI/Header'
-import SvgUri from 'react-native-svg-uri';
 import Span from '../components/UI/Span';
 import Button from '../components/UI/Button';
+import Ellipse1 from '../assets/Ellipse1';
+import Ellipse2 from '../assets/Ellipse2';
+import LogIn from '../components/Auth/LogIn';
 
 
-const Auth = () => {
+const Auth = (props) => {
+    const [Log, setState] = useState(true)
     return (
         <View style={styles.container}>
-            <View>
-                <Header style={styles.text}>Привет!</Header>
-                <Span style={styles.text}>{`Для продолжения\n войди в аккаунт\n или создай новый`}</Span>
-            </View>
-            <View>
-                <Button>Войти</Button>
-                <Button secondary>Зарегистрироваться</Button>
-            </View>
-            <SvgUri 
+            <Ellipse1 
                 style={styles.background} 
                 width={Dimensions.get("window").width} 
-                height={Dimensions.get("window").width} 
-                source={require('../assets/Ellipse1.svg')} 
+                height={Dimensions.get("window").width}
             />
-            <SvgUri 
+            <Ellipse2
                 style={styles.background2} 
                 width={Dimensions.get("window").width * 1.4} 
                 height={Dimensions.get("window").width * 1.4} 
-                source={require('../assets/Ellipse2.svg')} 
             />
+                <View>
+                    <Header style={styles.text}>Привет!</Header>
+                    <Span style={styles.text}>{`Для продолжения\n войди в аккаунт\n или создай новый`}</Span>
+                </View>
+            { Log ?
+                    <View>
+                        <Button onPress={() => {setState(false)}}>Войти</Button>
+                        <Button secondary>Зарегистрироваться</Button>
+                    </View>
+                :
+                    <LogIn {...props}/>
+                }
         </View>
     )
 }

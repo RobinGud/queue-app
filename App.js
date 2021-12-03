@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Auth from './screens/Auth';
-import Tutorial from './screens/Tutorial';
 import Profile from './screens/Profile';
 import Disciplines from './screens/Disciplines';
 import Groups from './screens/Groups';
@@ -40,25 +39,25 @@ export default function App() {
     return null;
   }
 
-  const foo = (e) => {
-    console.log(e)
-  }
-  
-  if (!isAuth) {
-    <Auth />
-  }
-
   return (
     <Provider store={store}>
       <View style={styles.container}>
-        {/* <Profile /> */}
-        {/* < Tutorial /> */}
         <NavigationContainer>
           <Stack.Navigator>
+            {!isAuth ?
+            <Stack.Screen 
+              name="Auth" 
+              options={{headerShown: false}}
+            >
+              { (props) => <Auth {...props} setAuth={setAuth} />}
+            </Stack.Screen>
+            :
+            <>
             <Stack.Screen 
               name="Home" 
-              component={Profile} 
-            />
+            >
+              { (props) => <Profile {...props} setAuth={setAuth}/>}
+            </Stack.Screen>
             <Stack.Screen 
               name="Disciplines" 
               component={Disciplines} 
@@ -70,6 +69,8 @@ export default function App() {
             <Stack.Screen name="Groups" component={Groups} />
             <Stack.Screen name="Queues" component={Queues} />
             <Stack.Screen name="Queue" component={Queue} />
+            </>
+            }
           </Stack.Navigator>
         </NavigationContainer>
         <StatusBar style="auto" />

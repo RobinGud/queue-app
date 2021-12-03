@@ -22,6 +22,9 @@ const Menu = (props) => {
             <TouchableOpacity style={styles.elementContainer}>
                 <Span>Настроить напоминание</Span>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.elementContainer} onPress={()=> props.setAuth(false)}>
+                <Span>Выйти</Span>
+            </TouchableOpacity>
         </View>
     )
 }
