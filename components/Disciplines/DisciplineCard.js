@@ -10,12 +10,12 @@ const DisciplineCard = (props) => {
 
     return (
         <TouchableOpacity style={styles.headerContainer} onPress={() => setIsOpen(!isOpen)}>
-            <Span>Математика</Span>
+            <Span>{props.discipline.title}</Span>
             {isOpen && <View style={styles.detailContainer}>
                 <View>            
-                    <Span l3>Преподаватель: Иванов Н.В.</Span>
-                    <Span l3>Активных очередей: 3</Span>
-                    <Span l3>Кол-во групп: 4</Span>
+                    <Span l3>{`Преподаватель: ${props.discipline.teacherName}`}</Span>
+                    <Span l3>{`Активных очередей: ${props.discipline.activeQueues || 0}`}</Span>
+                    <Span l3>{`Кол-во групп: ${props.discipline.countGroup || 0}`}</Span>
                     <Button small secondary onPress={() => props.navigation.navigate("Groups")}>Cписок групп</Button>
                 </View>
                 <CircularProgressBar size={Dimensions.get('window').width * 0.3} color={Colors.grey1} strokeWidth={10} percent={60} activeColor={Colors.blue}/>

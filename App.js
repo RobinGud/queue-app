@@ -1,25 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { useFonts } from 'expo-font';
-import Header from './components/UI/Header';
-import Span from './components/UI/Span';
-import Button from './components/UI/Button';
-import Input from './components/UI/Input';
-import Profile from './screens/Profile';
-import CircularProgressBar from './components/UI/CircularProgressBar'
-import Auth from './screens/Auth';
-import Tutorial from './screens/Tutorial';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Auth from './screens/Auth';
+import Tutorial from './screens/Tutorial';
+import Profile from './screens/Profile';
 import Disciplines from './screens/Disciplines';
 import Groups from './screens/Groups';
 import Queues from './screens/Queues';
 import Queue from './screens/Queue';
+import { disciplinesReducer } from './reducers/disciplines'
+import DisciplineAdd from './screens/DisciplineAdd';
+
 
 const Stack = createNativeStackNavigator();
 
+
+const rootReducer = combineReducers({
+  disciplines: disciplinesReducer
+});
+
+const store = createStore(rootReducer);
+
 export default function App() {
+  const [isAuth, setAuth] = useState(false)
 
   const [loaded] = useFonts({
     GilroyBold: require('./assets/fonts/Gilroy-Bold.ttf'),
@@ -35,46 +43,44 @@ export default function App() {
   const foo = (e) => {
     console.log(e)
   }
+  
+  if (!isAuth) {
+    <Auth />
+  }
 
   return (
-    <View style={styles.container}>
-      {/* <Profile /> */}
-      {/* <Auth /> */}
-      {/* < Tutorial /> */}
-      <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Profile} />
-        <Stack.Screen name="Disciplines" component={Disciplines} />
-        <Stack.Screen name="Groups" component={Groups} />
-        <Stack.Screen name="Queues" component={Queues} />
-        <Stack.Screen name="Queue" component={Queue} />
-      </Stack.Navigator>
-      </NavigationContainer>
-      
-
-      {/* <CircularProgressBar size={200} color="#234567" strokeWidth={50} percent={60} activeColor="#555"/>
-      <CircularProgressBar size={100} color="#234567" strokeWidth={10} percent={60} activeColor="#555"/> */}
-
-      {/* <Input email onInputChange={foo} label="Login"/>
-      <Header>TEXXTa</Header>
-      <Header h1>TEXXTa</Header>
-      <Header h2>TEXXTa</Header>
-      <Span>TEXXTa</Span>
-      <Span l2>TEXXTa</Span>
-      <Span l3>TEXXTa</Span>
-      <Button small onPress={foo}/>
-      <Button disabled onPress={foo}/>
-      <Button secondary onPress={foo}/> */}
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Provider store={store}>
+      <View style={styles.container}>
+        {/* <Profile /> */}
+        {/* < Tutorial /> */}
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen 
+              name="Home" 
+              component={Profile} 
+            />
+            <Stack.Screen 
+              name="Disciplines" 
+              component={Disciplines} 
+              options={{
+                title: 'Дисциплины'
+              }}
+            />
+            <Stack.Screen name="AddDiscipline" component={DisciplineAdd} />
+            <Stack.Screen name="Groups" component={Groups} />
+            <Stack.Screen name="Queues" component={Queues} />
+            <Stack.Screen name="Queue" component={Queue} />
+          </Stack.Navigator>
+        </NavigationContainer>
+        <StatusBar style="auto" />
+      </View>
+    </Provider>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center'
-  },
-});
+  }
+})

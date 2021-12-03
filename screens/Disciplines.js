@@ -1,22 +1,25 @@
-import React from 'react'
-import { ScrollView } from 'react-native'
+import React, {useLayoutEffect} from 'react'
+import { ScrollView, Button } from 'react-native'
+import { useSelector } from 'react-redux'
 import DisciplineCard from '../components/Disciplines/DisciplineCard'
-import Header from '../components/UI/Header'
 
 const Disciplines = (props) => {
+
+    const { navigation } = props
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            headerRight: () => (
+                <Button onPress={() => navigation.navigate("AddDiscipline")} title="Добавить"/>
+            )
+        });
+    }, [navigation]);
+
+    const disciplines = useSelector(state => state.disciplines.disciplines)
+
     return (
         <ScrollView>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
-            <DisciplineCard {...props}/>
+            {disciplines.map((value) => <DisciplineCard key={value.id} discipline={value} {...props}/>)}
         </ScrollView>
     )
 }

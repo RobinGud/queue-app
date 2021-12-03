@@ -12,29 +12,30 @@ const Input = (props) => {
     const { onInputChange, id } = props;
 
     useEffect(() => {
-        if (isTouched) {
-            onInputChange(id, value, isValid);
-        }
-    }, [onInputChange, id]);
+        // if (isTouched) {
+            onInputChange(id, value);
+        // }
+    }, [onInputChange, id, value]);
 
     const lostFocusHandler = () => {
         setIsValid(true)
         setErrorMessage([])
         setIsTouched(true)
-        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        if (props.required && value.trim().length === 0) {
-            setIsValid(false)
-            setErrorMessage(prev => [...prev, "Обязательное поле!"])
-        }
-        if (props.email && !emailRegex.test(value.toLowerCase())) {
-            setIsValid(false)
-            setErrorMessage(prev => [...prev, "Некоректный e-mail!"])
-        }
-        if (props.minLength != null && value.length < props.minLength) {
-            setIsValid(false)
-            setErrorMessage(prev => [...prev, `Минимальная длина: ${props.minLength}`])
-        }
+        // const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        // if (props.required && value.trim().length === 0) {
+        //     setIsValid(false)
+        //     setErrorMessage(prev => [...prev, "Обязательное поле!"])
+        // }
+        // if (props.email && !emailRegex.test(value.toLowerCase())) {
+        //     setIsValid(false)
+        //     setErrorMessage(prev => [...prev, "Некоректный e-mail!"])
+        // }
+        // if (props.minLength != null && value.length < props.minLength) {
+        //     setIsValid(false)
+        //     setErrorMessage(prev => [...prev, `Минимальная длина: ${props.minLength}`])
+        // }
     }
+
     const textChangeHandler = (text) => {
         setValue(text)
     }
