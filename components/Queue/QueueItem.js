@@ -3,15 +3,15 @@ import { View, Text, StyleSheet } from 'react-native'
 import Colors from '../../constants/Colors'
 import Span from '../UI/Span'
 
-const QueueItem = () => {
+const QueueItem = (props) => {
     return (
         <View style={styles.container}>
             <View style={styles.countContainer}>
-                <Text style={styles.text}>15</Text>
+                <Text style={styles.text}>{props.member.number}</Text>
             </View>
             <View style={styles.infoContainer}>
-                <Span>Иван Иванов</Span>
-                <Span l3>Защита через 5 минут</Span>
+                <Span>{props.member.fullname}</Span>
+                <Span l3>{`Защита через ${props.member.number * 15} минут`}</Span>
             </View>
         </View>
     )
@@ -28,11 +28,16 @@ const styles = StyleSheet.create({
     },
     countContainer: {
         backgroundColor: Colors.blue,
-        padding: 7,
-        borderRadius: 100
+        padding: 10,
+        width: 40,
+        height: 40,
+        lineHeight: 40,
+        borderRadius: 100,
+        textAlign: 'center',
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     text: {
-        textAlign: 'left',
         color: Colors.white
     }
 })

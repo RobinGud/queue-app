@@ -9,13 +9,13 @@ const QueueCard = (props) => {
     const [isOpen, setIsOpen] = useState(false)
     return (
         <TouchableOpacity style={styles.headerContainer} onPress={() => setIsOpen(!isOpen)}>
-            <Span>Лабораторная работа №5</Span>
+            <Span>{props.queue.title}</Span>
             {isOpen && <View style={styles.detailContainer}>
                 <View>
-                    <Span l3>Статус: Завершено</Span>         
-                    <Span l3>Тема: Иванов Н.В.</Span>
-                    <Span l3>Дата защиты: 24.02.22</Span>
-                    <Button small secondary onPress={() => props.navigation.navigate("Queue")}>Очередь</Button>
+                    <Span l3>{`Статус: ${props.queue.status}`}</Span>         
+                    <Span l3>{`Кол-во студентов: ${props.queue.countStudents || 0}`}</Span>
+                    <Span l3>{`День защиты: ${props.queue.date}`}</Span>
+                    <Button small secondary onPress={() => props.navigation.navigate("Queue", {queue:props.queue})}>Очередь</Button>
                 </View>
                 <CircularProgressBar size={Dimensions.get('window').width * 0.3} color={Colors.grey1} strokeWidth={10} percent={60} activeColor={Colors.blue}/>
             </View>}

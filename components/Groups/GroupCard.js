@@ -14,8 +14,8 @@ const GroupCard = (props) => {
                 <View>
                     <Span l3>{`Статус: ${props.group.status}`}</Span>         
                     <Span l3>{`Активных очередей: ${props.group.activeQueues}`}</Span>
-                    <Span l3>{`Кол-во очередей: ${props.group.countQueues}`}</Span>
-                    <Span l3>{`Кол-во участников: ${props.group.countMembers}`}</Span>
+                    <Span l3>{`Кол-во очередей: ${props.group.countQueues || 0}`}</Span>
+                    <Span l3>{`Кол-во участников: ${props.group.countMembers || 0}`}</Span>
                     <Button small secondary onPress={() => props.navigation.navigate("Queues")}>Список очередей</Button>
                 </View>
                 <CircularProgressBar size={Dimensions.get('window').width * 0.3} color={Colors.grey1} strokeWidth={10} percent={60} activeColor={Colors.blue}/>

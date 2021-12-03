@@ -16,6 +16,8 @@ import { disciplinesReducer } from './reducers/disciplines'
 import DisciplineAdd from './screens/DisciplineAdd';
 import { groupsReducer } from './reducers/groups';
 import GroupAdd from './screens/GroupAdd';
+import { queuesReducer } from './reducers/queues';
+import AddQueue from './screens/AddQueue';
 
 
 const Stack = createNativeStackNavigator();
@@ -23,7 +25,8 @@ const Stack = createNativeStackNavigator();
 
 const rootReducer = combineReducers({
   disciplines: disciplinesReducer,
-  groups: groupsReducer
+  groups: groupsReducer,
+  queues: queuesReducer
 });
 
 const store = createStore(rootReducer);
@@ -72,6 +75,7 @@ export default function App() {
             <Stack.Screen name="AddGroup" component={GroupAdd} />
             <Stack.Screen name="Groups" component={Groups} />
             <Stack.Screen name="Queues" component={Queues} />
+            <Stack.Screen name="AddQueue" component={AddQueue} />
             <Stack.Screen name="Queue" component={Queue} />
             </>
             }

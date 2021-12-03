@@ -53,6 +53,7 @@ const countWorkChangeHandler = (value) => {
                 <TextInput 
                     style={styles.input}
                     onChangeText={countWorkChangeHandler}
+                    keyboardType="numeric"
                 >
                 </TextInput>
             </View>
