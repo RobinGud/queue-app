@@ -3,10 +3,14 @@ import { StyleSheet, View, TextInput } from 'react-native'
 import Button from '../UI/Button'
 import Span  from '../UI/Span'
 import Colors  from '../../constants/Colors'
+import { useDispatch } from 'react-redux'
+import { loginUser } from '../../actions/users'
 
 const SignIn = (props) => {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
+
+    const dispatch = useDispatch()
 
 
     const loginChangeHandler = (value) => {
@@ -15,6 +19,10 @@ const SignIn = (props) => {
 
     const passwordChangeHandler = (value) => {
         setPassword(value)
+    }
+
+    const handlerPress = () => {
+        dispatch(loginUser(login, password))
     }
 
 
@@ -37,7 +45,7 @@ const SignIn = (props) => {
                 </TextInput>
             </View>
             <View style={styles.buttonContainer}>
-                <Button onPress={() => props.setAuth(true)}>Войти</Button>
+                <Button onPress={handlerPress}>Войти</Button>
             </View>
         </View>
     )

@@ -3,10 +3,14 @@ import { StyleSheet, View, TextInput } from 'react-native'
 import Button from '../UI/Button'
 import Span  from '../UI/Span'
 import Colors  from '../../constants/Colors'
+import { useDispatch } from 'react-redux'
+import { registerUser } from '../../actions/users'
 
 const SignUp = (props) => {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
+
+    const dispatch = useDispatch()
 
 
     const loginChangeHandler = (value) => {
@@ -15,6 +19,11 @@ const SignUp = (props) => {
 
     const passwordChangeHandler = (value) => {
         setPassword(value)
+    }
+
+    const handlerPress = () => {
+        props.setModalState(null)
+        dispatch(registerUser(login, password))
     }
 
 
@@ -37,7 +46,7 @@ const SignUp = (props) => {
                 </TextInput>
             </View>
             <View style={styles.buttonContainer}>
-                <Button onPress={() => props.setModalState(null)}>Зарегистрироваться</Button>
+                <Button onPress={handlerPress}>Зарегистрироваться</Button>
             </View>
         </View>
     )

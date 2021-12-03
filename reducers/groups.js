@@ -1,3 +1,5 @@
+import { ADD_GROUP } from "../actions/groups"
+
 const initialState = {
     groups: [
         {
@@ -23,7 +25,7 @@ const initialState = {
 
 export const groupsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_GROUP":
+        case ADD_GROUP:
             return {...state, groups: [...state.groups, action.group]}
         default:
             return state

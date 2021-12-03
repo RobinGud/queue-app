@@ -1,10 +1,13 @@
 import React from 'react'
 import { StyleSheet, View, TouchableOpacity } from 'react-native'
+import { useDispatch } from 'react-redux'
 import Colors from '../../constants/Colors'
 import Header from '../UI/Header'
 import Span from '../UI/Span'
+import { logoutUser } from '../../actions/users'
 
 const Menu = (props) => {
+    const dispath = useDispatch()
     return (
         <View>
             <View style={styles.headerContainer}>
@@ -22,7 +25,7 @@ const Menu = (props) => {
             <TouchableOpacity style={styles.elementContainer}>
                 <Span>Настроить напоминание</Span>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.elementContainer} onPress={()=> props.setAuth(false)}>
+            <TouchableOpacity style={styles.elementContainer} onPress={()=> dispath(logoutUser())}>
                 <Span>Выйти</Span>
             </TouchableOpacity>
         </View>
