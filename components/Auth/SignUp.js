@@ -4,7 +4,7 @@ import Button from '../UI/Button'
 import Span  from '../UI/Span'
 import Colors  from '../../constants/Colors'
 
-const DisciplineAdd = (props) => {
+const SignUp = (props) => {
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
 
@@ -37,7 +37,7 @@ const DisciplineAdd = (props) => {
                 </TextInput>
             </View>
             <View style={styles.buttonContainer}>
-                <Button onPress={() => props.setAuth(true)}>Войти</Button>
+                <Button onPress={() => props.setModalState(null)}>Зарегистрироваться</Button>
             </View>
         </View>
     )
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default DisciplineAdd
+export default SignUp

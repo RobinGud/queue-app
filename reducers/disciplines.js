@@ -1,3 +1,5 @@
+import { ADD_DISCIPLINE } from "../actions/disciplines"
+
 const initialState = {
     disciplines: [
         {
@@ -19,7 +21,7 @@ const initialState = {
 
 export const disciplinesReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_DISCIPLINE":
+        case ADD_DISCIPLINE:
             return {...state, disciplines: [...state.disciplines, action.discipline]}
         default:
             return state

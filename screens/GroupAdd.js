@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 import { ScrollView, StyleSheet, View, TextInput } from 'react-native'
 import Button from '../components/UI/Button'
 import { useDispatch } from 'react-redux'
-import { addDiscipline } from '../actions/disciplines'
+import { addGroup } from '../actions/groups'
 import Span  from '../components/UI/Span'
 import Colors  from '../constants/Colors'
 
-const DisciplineAdd = (props) => {
+const GroupAdd = (props) => {
 const [title, setDisciplineName] = useState("")
 const [teacherName, setFullname] = useState("")
 const [countWork, setCountWork] = useState(null)
 
 const dispatch = useDispatch()
 
-const disciplineNameChangeHandler = (value) => {
+const groupNameChangeHandler = (value) => {
     setDisciplineName(value)
 }
 
@@ -26,17 +26,17 @@ const countWorkChangeHandler = (value) => {
 }
 
     const onSubmit = () => {
-        dispatch(addDiscipline({title, teacherName, activeQueues: countWork}))
+        dispatch(addGroup({title, teacherName, activeQueues: countWork}))
         props.navigation.pop()
     }
 
     return (
         <ScrollView>
             <View style={styles.container}>
-                <Span style={styles.label}>Название дисциплины:</Span>
+                <Span style={styles.label}>Название группы:</Span>
                 <TextInput 
                     style={styles.input}
-                    onChangeText={disciplineNameChangeHandler}
+                    onChangeText={groupNameChangeHandler}
                 >
                 </TextInput>
             </View>
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default DisciplineAdd
+export default GroupAdd

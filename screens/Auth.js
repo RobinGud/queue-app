@@ -5,11 +5,12 @@ import Span from '../components/UI/Span';
 import Button from '../components/UI/Button';
 import Ellipse1 from '../assets/Ellipse1';
 import Ellipse2 from '../assets/Ellipse2';
-import LogIn from '../components/Auth/LogIn';
+import SignIn from '../components/Auth/SignIn';
+import SignUp from '../components/Auth/SignUp';
 
 
 const Auth = (props) => {
-    const [Log, setState] = useState(true)
+    const [modalState, setModalState] = useState(null)
     return (
         <View style={styles.container}>
             <Ellipse1 
@@ -26,14 +27,17 @@ const Auth = (props) => {
                     <Header style={styles.text}>Привет!</Header>
                     <Span style={styles.text}>{`Для продолжения\n войди в аккаунт\n или создай новый`}</Span>
                 </View>
-            { Log ?
-                    <View>
-                        <Button onPress={() => {setState(false)}}>Войти</Button>
-                        <Button secondary>Зарегистрироваться</Button>
-                    </View>
-                :
-                    <LogIn {...props}/>
-                }
+            {modalState === null &&
+                <View>
+                    <Button onPress={() => {setModalState("sign-in")}}>Войти</Button>
+                    <Button secondary onPress={() => {setModalState("sign-up")}}>Зарегистрироваться</Button>
+                </View>}
+            {modalState === "sign-in" &&
+                <SignIn {...props}/>
+            }
+            {modalState === "sign-up" &&
+                <SignUp {...props} setModalState={setModalState}/>
+            }
         </View>
     )
 }
