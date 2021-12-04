@@ -6,18 +6,18 @@ const initialState = {
             id: 1,
             email: "qwe@qwe.ru",
             password: "123",
-            fullname: "Мария Петрова",
-            university: "ИТМО",
-            facultet: "ИТИП",
+            fullname: "Никита Петров",
+            university: "Университет ИТМО",
+            facultet: "Факультет информационных технологий и программирования",
             course: 1
         },
         {
             id: 2,
             email: "123@google.com",
             password: "pass",
-            fullname: "Никита Иванов",
-            university: "ИТМО",
-            facultet: "ИТИП",
+            fullname: "Мария Петрова",
+            university: "Университет ИТМО",
+            facultet: "Факультет информационных технологий и программирования",
             course: 4
         }
     ],

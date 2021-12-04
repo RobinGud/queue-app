@@ -34,6 +34,7 @@ const SignUp = (props) => {
                 <TextInput 
                     style={styles.input}
                     onChangeText={loginChangeHandler}
+                    autoCapitalize={'none'}
                 >
                 </TextInput>
             </View>
@@ -42,6 +43,7 @@ const SignUp = (props) => {
                 <TextInput 
                     style={styles.input}
                     onChangeText={passwordChangeHandler}
+                    secureTextEntry={true}
                 >
                 </TextInput>
             </View>

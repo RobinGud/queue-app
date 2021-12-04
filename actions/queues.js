@@ -1,4 +1,5 @@
 export const ADD_QUEUE = 'ADD_QUEUE'
+export const ADD_MEMBER = 'ADD_MEMBER'
 
 export const addQueue = (queue) => {
     queue.id = Math.floor(Math.random() * 100000000)

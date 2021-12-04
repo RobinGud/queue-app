@@ -108,7 +108,7 @@ const EditProfile = (props) => {
                 </TextInput>
             </View>
             <View style={styles.buttonContainer}>
-                <Button onPress={onSubmit}>Добавить</Button>
+                <Button onPress={onSubmit}>Сохранить</Button>
             </View>
             </ScrollView>
     )
