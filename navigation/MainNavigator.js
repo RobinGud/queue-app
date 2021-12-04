@@ -11,6 +11,7 @@ import Queue from '../screens/Queue'
 import DisciplineAdd from '../screens/DisciplineAdd'
 import GroupAdd from '../screens/GroupAdd'
 import AddQueue from '../screens/AddQueue'
+import EditProfile from '../screens/EditProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,7 @@ const MainNavigator = () => {
                     <Stack.Screen name="Queues" component={Queues} />
                     <Stack.Screen name="AddQueue" component={AddQueue} />
                     <Stack.Screen name="Queue" component={Queue} />
+                    <Stack.Screen name="EditProfile" component={EditProfile} />
                 </>
                 }
             </Stack.Navigator>

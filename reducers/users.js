@@ -1,4 +1,4 @@
-import { REGISTER_USER, LOGIN_USER, LOGOUT_USER } from "../actions/users"
+import { REGISTER_USER, LOGIN_USER, LOGOUT_USER, UPDATE_USER } from "../actions/users"
 
 const initialState = {
     users: [
@@ -29,10 +29,17 @@ export const usersReducer = (state = initialState, action) => {
         case REGISTER_USER:
             return {...state, users: [...state.users, action.user]}
         case LOGIN_USER:
-            const userId = state.users.find((item) => { return item.email == action.user.email && action.user.password == item.password})
+            const user = state.users.find((item) => { return item.email == action.user.email && action.user.password == item.password})
+            const userId = user.id
             return {...state, currentUserId: userId}
         case LOGOUT_USER:
             return {...state, currentUserId: undefined}
+        case UPDATE_USER:
+            let users = state.users.filter(value => {return value.id != state.currentUserId})
+            let updatedUser = action.user
+            updatedUser.id = state.currentUserId
+            users.push(updatedUser)
+            return {...state, users: [...users]}
         default:
             return state
     }

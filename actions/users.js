@@ -1,6 +1,7 @@
 export const REGISTER_USER = 'REGISTER_USER'
 export const LOGIN_USER = 'LOGIN_USER'
 export const LOGOUT_USER = 'LOGOUT_USER'
+export const UPDATE_USER = 'UPDATE_USER'
 
 export const registerUser = (email, password) => {
     let user= {email, password}
@@ -18,4 +19,8 @@ export const loginUser = (email, password) => {
 
 export const logoutUser = () => {
     return { type: LOGOUT_USER };
+}
+
+export const updateUser = (user) => {
+    return {type: UPDATE_USER, user}
 }
